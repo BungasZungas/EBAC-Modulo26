@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ZUNGAS.Core.Singleton;
+using DG.Tweening;
 
 namespace Screens 
 {
@@ -13,11 +14,17 @@ namespace Screens
 
         private ScreenBase _currentScreen;
 
+        public Vector3 vec;
 
         private void Start()
         {
             HideAll();
             ShowByType(startScreen);
+        }
+
+        private void Scale(Transform t, float size = 1.2f)
+        {
+            t.localScale = Vector3.one * size;
         }
 
         public void ShowByType(ScreenType type)
